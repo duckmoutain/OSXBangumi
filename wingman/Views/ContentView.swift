@@ -27,8 +27,15 @@ struct ContentView: View {
                     Spacer()
                     Text("北宇治高校")
                 }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
             }
             .padding()
+            
+            Divider()
+            
+            Text("About Wingman")
+                .font(.title2)
         }
     }
 }
@@ -36,6 +43,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .frame(width: 700, height: 300)
     }
 }
