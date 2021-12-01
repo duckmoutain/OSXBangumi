@@ -12,7 +12,7 @@ struct wingmanApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(width: 200, height: 100)
+                .frame(minWidth: 700, minHeight: 300)
         }
     }
 }

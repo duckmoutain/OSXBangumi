@@ -11,6 +11,8 @@
 		1094443F275625CD00CB4536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094443E275625CD00CB4536 /* ContentView.swift */; };
 		10944441275625CF00CB4536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10944440275625CF00CB4536 /* Assets.xcassets */; };
 		10944444275625CF00CB4536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10944443275625CF00CB4536 /* Preview Assets.xcassets */; };
+		10FBC4EA275711B0007C0A51 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4E9275711B0007C0A51 /* Profile.swift */; };
+		10FBC4EC27571339007C0A51 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4EB27571339007C0A51 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		10944440275625CF00CB4536 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10944443275625CF00CB4536 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		10944445275625CF00CB4536 /* wingman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wingman.entitlements; sourceTree = "<group>"; };
+		10FBC4E9275711B0007C0A51 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		10FBC4EB27571339007C0A51 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		1094443B275625CD00CB4536 /* wingman */ = {
 			isa = PBXGroup;
 			children = (
+				10FBC4E9275711B0007C0A51 /* Profile.swift */,
 				1094443C275625CD00CB4536 /* wingmanApp.swift */,
 				1094443E275625CD00CB4536 /* ContentView.swift */,
 				10944440275625CF00CB4536 /* Assets.xcassets */,
 				10944445275625CF00CB4536 /* wingman.entitlements */,
 				10944442275625CF00CB4536 /* Preview Content */,
+				10FBC4EB27571339007C0A51 /* MapView.swift */,
 			);
 			path = wingman;
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1094443F275625CD00CB4536 /* ContentView.swift in Sources */,
+				10FBC4EC27571339007C0A51 /* MapView.swift in Sources */,
+				10FBC4EA275711B0007C0A51 /* Profile.swift in Sources */,
 				1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
