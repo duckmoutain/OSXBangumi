@@ -33,3 +33,12 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self): \n\(error)")
     }
 }
+
+func overrideData(data: [Landmark]) {
+    print(data)
+    let os = OutputStream(toFileAtPath: "../Resources/landmarkData-.json", append: false)
+    os?.open()
+    JSONSerialization.writeJSONObject(data, to: os!, options: JSONSerialization.WritingOptions.prettyPrinted, error: NSErrorPointer.none)
+    os?.close()
+}
+

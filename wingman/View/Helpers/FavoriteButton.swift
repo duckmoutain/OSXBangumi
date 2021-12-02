@@ -8,21 +8,16 @@
 import SwiftUI
 
 struct FavoriteButton: View {
-    @Binding var isSet: Bool
+    @Binding var landmark: Landmark
     
     var body: some View {
         Button {
-            isSet.toggle()
+            landmark.isFavorite.toggle()
+            overrideData(data: ModelData().landmarks)
         } label: {
-            Label("Toggle Favorite", systemImage: isSet ? "star.fill" : "star")
+            Label("Toggle Favorite", systemImage: landmark.isFavorite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isSet ? .yellow : .gray)
+                .foregroundColor(landmark.isFavorite ? .yellow : .gray)
         }
-    }
-}
-
-struct FavoriteButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoriteButton(isSet: .constant(true))
     }
 }
