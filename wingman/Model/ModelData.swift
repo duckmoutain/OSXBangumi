@@ -35,10 +35,35 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 func overrideData(data: [Landmark]) {
-    print(data)
-    let os = OutputStream(toFileAtPath: "../Resources/landmarkData-.json", append: false)
-    os?.open()
-    JSONSerialization.writeJSONObject(data, to: os!, options: JSONSerialization.WritingOptions.prettyPrinted, error: NSErrorPointer.none)
-    os?.close()
+    let encoder = JSONEncoder()
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    encoder.outputFormatting = .prettyPrinted
+    
+    
+    let userAccountPath =  NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+    
+    let jsonData = try! encoder.encode(data)
+    do  {
+        let url = URL.init(fileURLWithPath: userAccountPath).appendingPathComponent("landmarkData.json")
+        print(url)
+        try jsonData.write(to: url)
+    } catch {
+        print(error)
+    }
 }
+
+func saveToJsonFile(fileName:String,dict:[Landmark]) {
+        guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileUrl = documentDirectoryUrl.appendingPathComponent("\(fileName).json")
+
+        let personArray = dict
+
+        // Transform array into data and save it into file
+        do {
+            let data = try JSONSerialization.data(withJSONObject: personArray, options: [])
+            try data.write(to: fileUrl, options: [])
+        } catch {
+            print(error)
+        }
+    }
 
