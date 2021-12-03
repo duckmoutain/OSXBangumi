@@ -10,6 +10,29 @@ import Combine
 
 final class ModelData: ObservableObject {
    @Published var landmarks: [Landmark] = load("../Resources/landmarkData.json")
+    @Published var mylandmarks: [myLandmark] = loadSandBox("landmarkData.json")
+}
+
+func loadSandBox<T: Decodable>(_ filename: String) -> T {
+    let sandboxData: Data
+    
+    guard let sandBoxfile = sandBoxFileManager.shared.getFileUrl(fileName: filename)
+    else {
+        fatalError("Couldn't find \(filename)")
+    }
+    
+    do {
+        sandboxData = try Data(contentsOf: sandBoxfile)
+    } catch {
+        fatalError("Couldn't load \(filename) from main bundle: \n\(error)")
+    }
+    
+    do {
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: sandboxData)
+    } catch {
+        fatalError("Couldn't parse \(filename) as \(T.self): \n\(error)")
+    }
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
@@ -39,31 +62,12 @@ func overrideData(data: [Landmark]) {
     encoder.keyEncodingStrategy = .convertToSnakeCase
     encoder.outputFormatting = .prettyPrinted
     
-    
-    let userAccountPath =  NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
-    
     let jsonData = try! encoder.encode(data)
     do  {
-        let url = URL.init(fileURLWithPath: userAccountPath).appendingPathComponent("landmarkData.json")
-        print(url)
-        try jsonData.write(to: url)
+        let url = sandBoxFileManager.shared.getFileUrl(fileName: "landmarkData.json")
+        print(url!)
+        try jsonData.write(to: url!)
     } catch {
         print(error)
     }
 }
-
-func saveToJsonFile(fileName:String,dict:[Landmark]) {
-        guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let fileUrl = documentDirectoryUrl.appendingPathComponent("\(fileName).json")
-
-        let personArray = dict
-
-        // Transform array into data and save it into file
-        do {
-            let data = try JSONSerialization.data(withJSONObject: personArray, options: [])
-            try data.write(to: fileUrl, options: [])
-        } catch {
-            print(error)
-        }
-    }
-
