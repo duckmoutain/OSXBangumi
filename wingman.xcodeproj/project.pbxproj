@@ -13,9 +13,9 @@
 		10944444275625CF00CB4536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10944443275625CF00CB4536 /* Preview Assets.xcassets */; };
 		10BBE9E72759B5680048794C /* fileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBE9E62759B5680048794C /* fileManager.swift */; };
 		10BBE9E92759C3130048794C /* myLandmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBE9E82759C3130048794C /* myLandmark.swift */; };
+		10BBE9EB275A20440048794C /* Bangumi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBE9EA275A20430048794C /* Bangumi.swift */; };
 		10FBC4EA275711B0007C0A51 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4E9275711B0007C0A51 /* Profile.swift */; };
 		10FBC4EC27571339007C0A51 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4EB27571339007C0A51 /* MapView.swift */; };
-		10FBC4F0275773DB007C0A51 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4EF275773DB007C0A51 /* Landmark.swift */; };
 		10FBC4F227577743007C0A51 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4F127577743007C0A51 /* ModelData.swift */; };
 		10FBC4F927579BA8007C0A51 /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4F827579BA8007C0A51 /* LandmarkRow.swift */; };
 		10FBC4FB275865B6007C0A51 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FBC4FA275865B6007C0A51 /* LandmarkList.swift */; };
@@ -33,9 +33,10 @@
 		10944445275625CF00CB4536 /* wingman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wingman.entitlements; sourceTree = "<group>"; };
 		10BBE9E62759B5680048794C /* fileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileManager.swift; sourceTree = "<group>"; };
 		10BBE9E82759C3130048794C /* myLandmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myLandmark.swift; sourceTree = "<group>"; };
+		10BBE9EA275A20430048794C /* Bangumi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bangumi.swift; sourceTree = "<group>"; };
+		10BBE9EC275A2EFF0048794C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		10FBC4E9275711B0007C0A51 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		10FBC4EB27571339007C0A51 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		10FBC4EF275773DB007C0A51 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		10FBC4F127577743007C0A51 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		10FBC4F827579BA8007C0A51 /* LandmarkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRow.swift; sourceTree = "<group>"; };
 		10FBC4FA275865B6007C0A51 /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		1094443B275625CD00CB4536 /* wingman */ = {
 			isa = PBXGroup;
 			children = (
+				10BBE9EC275A2EFF0048794C /* Info.plist */,
 				10BBE9E52759B54A0048794C /* FileManager */,
 				10FBC5032758A7F1007C0A51 /* View */,
 				10FBC4F52757982F007C0A51 /* Resources */,
@@ -115,9 +117,9 @@
 		10FBC4F427579827007C0A51 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10FBC4EF275773DB007C0A51 /* Landmark.swift */,
 				10FBC4F127577743007C0A51 /* ModelData.swift */,
 				10BBE9E82759C3130048794C /* myLandmark.swift */,
+				10BBE9EA275A20430048794C /* Bangumi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,12 +226,12 @@
 				1094443F275625CD00CB4536 /* ContentView.swift in Sources */,
 				10FBC4EC27571339007C0A51 /* MapView.swift in Sources */,
 				10FBC4EA275711B0007C0A51 /* Profile.swift in Sources */,
+				10BBE9EB275A20440048794C /* Bangumi.swift in Sources */,
 				10FBC5012758A5D4007C0A51 /* FavoriteButton.swift in Sources */,
 				10FBC4FB275865B6007C0A51 /* LandmarkList.swift in Sources */,
 				10FBC4FF27586AE2007C0A51 /* LandmarkDetail.swift in Sources */,
 				10BBE9E72759B5680048794C /* fileManager.swift in Sources */,
 				1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */,
-				10FBC4F0275773DB007C0A51 /* Landmark.swift in Sources */,
 				10FBC4F927579BA8007C0A51 /* LandmarkRow.swift in Sources */,
 				10FBC4F227577743007C0A51 /* ModelData.swift in Sources */,
 				10BBE9E92759C3130048794C /* myLandmark.swift in Sources */,
@@ -369,6 +371,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = wingman/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,6 +400,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = wingman/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

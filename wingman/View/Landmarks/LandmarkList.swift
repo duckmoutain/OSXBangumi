@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkList: View {
     @EnvironmentObject var modelData: ModelData
-    @State private var showFavoritesOnly = true
+    @State private var showFavoritesOnly = false
     
     var filteredLandmarks: [myLandmark] {
         modelData.mylandmarks.filter { landmark in
@@ -32,6 +32,8 @@ struct LandmarkList: View {
                     }
                 }
                 .navigationTitle("Landmarks")
+                
+                Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
             }
         }
     }
