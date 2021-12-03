@@ -17,11 +17,22 @@ class sandBoxFileManager  {
     // Should not init outside
     private init() {}
     
-    func getFileUrl (fileName: String) -> URL? {
+    func getFileUrlToRead (fileName: String) -> URL? {
+        let url = URL.init(fileURLWithPath: baseUrl).appendingPathComponent(fileName)
+        let filePath = url.path
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: filePath) {
+            return url
+        }
+        
+        print("FILE NOT AVAILABLE")
+        return Bundle.main.url(forResource: fileName, withExtension: nil)
+    }
+    
+    func getFileUrlToWhite (fileName: String) -> URL? {
         let url = URL.init(fileURLWithPath: baseUrl).appendingPathComponent(fileName)
         return url
     }
-    
     
     
 }

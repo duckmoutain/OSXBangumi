@@ -12,7 +12,7 @@ struct LandmarkDetail: View {
     var landmark: myLandmark
     
     var landmarkIndex: Int {
-        modelData.landmarks.firstIndex(where: {$0.id == landmark.id})!
+        modelData.mylandmarks.firstIndex(where: {$0.id == landmark.id})!
     }
     
     var body: some View {

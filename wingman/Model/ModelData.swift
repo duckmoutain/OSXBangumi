@@ -9,20 +9,18 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-   @Published var landmarks: [Landmark] = load("../Resources/landmarkData.json")
     @Published var mylandmarks: [myLandmark] = loadSandBox("landmarkData.json")
 }
 
 func loadSandBox<T: Decodable>(_ filename: String) -> T {
     let sandboxData: Data
     
-    guard let sandBoxfile = sandBoxFileManager.shared.getFileUrl(fileName: filename)
-    else {
-        fatalError("Couldn't find \(filename)")
-    }
+    
+    
+    let sandBoxfile = sandBoxFileManager.shared.getFileUrlToRead(fileName: filename)
     
     do {
-        sandboxData = try Data(contentsOf: sandBoxfile)
+        sandboxData = try Data(contentsOf: sandBoxfile!)
     } catch {
         fatalError("Couldn't load \(filename) from main bundle: \n\(error)")
     }
@@ -35,28 +33,6 @@ func loadSandBox<T: Decodable>(_ filename: String) -> T {
     }
 }
 
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-    
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
-        fatalError("Couldn't find \(filename) in main bundle.")
-    }
-    
-    do {
-        data = try Data(contentsOf:  file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle: \n\(error)")
-    }
-    
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self): \n\(error)")
-    }
-}
-
 func overrideData(data: [myLandmark]) {
     let encoder = JSONEncoder()
     encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -64,7 +40,7 @@ func overrideData(data: [myLandmark]) {
     
     let jsonData = try! encoder.encode(data)
     do  {
-        let url = sandBoxFileManager.shared.getFileUrl(fileName: "landmarkData.json")
+        let url = sandBoxFileManager.shared.getFileUrlToWhite(fileName: "landmarkData.json")
         print(url!)
         try jsonData.write(to: url!)
     } catch {
