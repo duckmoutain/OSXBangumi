@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkDetail: View {
     @EnvironmentObject var modelData: ModelData
-    var landmark: Landmark
+    var landmark: myLandmark
     
     var landmarkIndex: Int {
         modelData.landmarks.firstIndex(where: {$0.id == landmark.id})!
@@ -28,7 +28,7 @@ struct LandmarkDetail: View {
                 HStack{
                     Text(landmark.name)
                         .font(.title)
-                    FavoriteButton(landmark: $modelData.landmarks[landmarkIndex])
+                    FavoriteButton(index: landmarkIndex)
                 }
                 HStack{
                     Text(landmark.park)
@@ -55,7 +55,7 @@ struct LandmarkDetail_Previews: PreviewProvider {
     static let modelData = ModelData()
     
     static var previews: some View {
-        LandmarkDetail(landmark: ModelData().landmarks[0])
+        LandmarkDetail(landmark: modelData.mylandmarks[0])
             .environmentObject(modelData)
     }
 }

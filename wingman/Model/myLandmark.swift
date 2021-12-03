@@ -15,6 +15,7 @@ struct myLandmark: Hashable, Codable, Identifiable {
     var is_favorite: Bool
     var park: String
     var description: String
+    var state: String
     private var image_name: String
     private var coordinates: Coordinates
     

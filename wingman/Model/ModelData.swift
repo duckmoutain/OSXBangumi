@@ -57,7 +57,7 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
-func overrideData(data: [Landmark]) {
+func overrideData(data: [myLandmark]) {
     let encoder = JSONEncoder()
     encoder.keyEncodingStrategy = .convertToSnakeCase
     encoder.outputFormatting = .prettyPrinted

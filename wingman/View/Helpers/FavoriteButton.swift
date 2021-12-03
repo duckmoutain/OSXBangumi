@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct FavoriteButton: View {
-    @Binding var landmark: Landmark
+    @EnvironmentObject var modelData: ModelData
+    var index: Int
     
     var body: some View {
         Button {
-            landmark.isFavorite.toggle()
-            overrideData(data: ModelData().landmarks)
+            modelData.mylandmarks[index].is_favorite.toggle()
+            overrideData(data: modelData.mylandmarks)
         } label: {
-            Label("Toggle Favorite", systemImage: landmark.isFavorite ? "star.fill" : "star")
+            Label("Toggle Favorite", systemImage: modelData.mylandmarks[index].is_favorite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
-                .foregroundColor(landmark.isFavorite ? .yellow : .gray)
+                .foregroundColor(modelData.mylandmarks[index].is_favorite ? .yellow : .gray)
         }
     }
 }
