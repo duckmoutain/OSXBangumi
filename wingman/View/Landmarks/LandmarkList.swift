@@ -20,6 +20,7 @@ struct LandmarkList: View {
     var body: some View {
         NavigationView {
             List{
+                Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
@@ -33,7 +34,6 @@ struct LandmarkList: View {
                 }
                 .navigationTitle("Landmarks")
                 
-                Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
             }
         }
     }

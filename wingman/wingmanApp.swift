@@ -16,6 +16,28 @@ struct wingmanApp: App {
             ContentView()
                 .environmentObject(modelData)
                 .frame(minWidth: 700, minHeight: 300)
+                .onOpenURL { url in
+                    let dict = url.description.tt_urlQueryDict()
+                    print(dict)
+                }
         }
+        
+    }
+}
+
+
+extension String {
+    func tt_urlQueryDict() -> [String: String] {
+        var dict = [String: String]()
+        guard let queryItems = URLComponents(string:  self)?.queryItems
+        else{
+            return dict
+        }
+        for qi in queryItems {
+            let key = qi.name
+            let value = qi.value
+            dict[key] = value
+        }
+        return dict
     }
 }
