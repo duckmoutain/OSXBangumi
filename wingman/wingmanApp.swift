@@ -18,7 +18,7 @@ struct wingmanApp: App {
                 .frame(minWidth: 700, minHeight: 300)
                 .onOpenURL { url in
                     let dict = url.description.tt_urlQueryDict()
-                    print(dict)
+                    BangumiAccountRequestParams.shared.getAccessToken(postData: dict)
                 }
         }
         

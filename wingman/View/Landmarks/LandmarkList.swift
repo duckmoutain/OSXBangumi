@@ -21,6 +21,7 @@ struct LandmarkList: View {
         NavigationView {
             List{
                 Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
+                InfoBtn()
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
