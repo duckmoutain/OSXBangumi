@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100DBB48275DAA5B008989B3 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB47275DAA5B008989B3 /* AccountInfo.swift */; };
+		100DBB4C275DC0FB008989B3 /* BangumiNoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */; };
+		100DBB4E275DE705008989B3 /* BangumiUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */; };
+		100DBB50275DE717008989B3 /* noSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4F275DE717008989B3 /* noSelectView.swift */; };
 		1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094443C275625CD00CB4536 /* wingmanApp.swift */; };
 		1094443F275625CD00CB4536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094443E275625CD00CB4536 /* ContentView.swift */; };
 		10944441275625CF00CB4536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10944440275625CF00CB4536 /* Assets.xcassets */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100DBB47275DAA5B008989B3 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BangumiNoUser.swift; sourceTree = "<group>"; };
+		100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BangumiUserInfo.swift; sourceTree = "<group>"; };
+		100DBB4F275DE717008989B3 /* noSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noSelectView.swift; sourceTree = "<group>"; };
 		10944439275625CD00CB4536 /* wingman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wingman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1094443C275625CD00CB4536 /* wingmanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wingmanApp.swift; sourceTree = "<group>"; };
 		1094443E275625CD00CB4536 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 				10FBC4F127577743007C0A51 /* ModelData.swift */,
 				10BBE9E82759C3130048794C /* myLandmark.swift */,
 				10BBE9EA275A20430048794C /* Bangumi.swift */,
+				100DBB47275DAA5B008989B3 /* AccountInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				10FDF77E275D04F2001D1FF9 /* InfoBtn.swift */,
+				100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */,
+				100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */,
+				100DBB4F275DE717008989B3 /* noSelectView.swift */,
 			);
 			path = Bangumi;
 			sourceTree = "<group>";
@@ -242,11 +254,15 @@
 				10FBC4FB275865B6007C0A51 /* LandmarkList.swift in Sources */,
 				10FBC4FF27586AE2007C0A51 /* LandmarkDetail.swift in Sources */,
 				10BBE9E72759B5680048794C /* fileManager.swift in Sources */,
+				100DBB50275DE717008989B3 /* noSelectView.swift in Sources */,
 				1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */,
 				10FBC4F927579BA8007C0A51 /* LandmarkRow.swift in Sources */,
 				10FBC4F227577743007C0A51 /* ModelData.swift in Sources */,
+				100DBB4C275DC0FB008989B3 /* BangumiNoUser.swift in Sources */,
 				10FDF77F275D04F2001D1FF9 /* InfoBtn.swift in Sources */,
 				10BBE9E92759C3130048794C /* myLandmark.swift in Sources */,
+				100DBB4E275DE705008989B3 /* BangumiUserInfo.swift in Sources */,
+				100DBB48275DAA5B008989B3 /* AccountInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

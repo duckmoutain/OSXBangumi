@@ -18,10 +18,12 @@ struct LandmarkList: View {
     }
     
     var body: some View {
-        NavigationView {
-            List{
+        List {
+            Section("Bangumi") {
                 Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
                 InfoBtn()
+            }
+            Section("Apple Sample") {
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
@@ -34,14 +36,7 @@ struct LandmarkList: View {
                     }
                 }
                 .navigationTitle("Landmarks")
-                
             }
         }
-    }
-}
-
-struct LandmarkList_Previews: PreviewProvider {
-    static var previews: some View {
-        LandmarkList()
     }
 }

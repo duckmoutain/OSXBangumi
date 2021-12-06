@@ -15,13 +15,12 @@ struct wingmanApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(modelData)
-                .frame(minWidth: 700, minHeight: 300)
+                .frame(minWidth: 900, minHeight: 300)
                 .onOpenURL { url in
                     let dict = url.description.tt_urlQueryDict()
                     BangumiAccountRequestParams.shared.getAccessToken(postData: dict)
                 }
         }
-        
     }
 }
 

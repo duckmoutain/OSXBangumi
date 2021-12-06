@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoBtn: View {
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             Button {
                 BangumiAccountRequestParams.shared.printInfo(type: .accessToken)
             } label: {

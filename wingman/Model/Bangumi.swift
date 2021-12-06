@@ -11,19 +11,15 @@ final class BangumiAccountRequestParams {
     
     static let shared = BangumiAccountRequestParams()
     
-    private let BaseUrl = "https://bgm.tv/oauth/authorize"
-    private let client_id = "bgm208161a865facb1e2"
-    private let response_type = "code"
-    private let client_secret = "7f914c10cc4ba6351e933ff031b5786b"
+    private let request_info: AccountRequestInfo
+    private var token_info: BangumiTokenInfo
+    private var account_info: AccountInfo
     
-    
-    private var access_token: String = ""
-    private var user_id = 0
-    private var expires_in = 0
-    private var refresh_token = ""
-    private var token_type = "Bearer"
-    
-    private init() {}
+    private init() {
+        request_info = AccountRequestInfo()
+        token_info = BangumiTokenInfo()
+        account_info = AccountInfo()
+    }
     
     enum Info {
         case accessToken
@@ -37,25 +33,25 @@ final class BangumiAccountRequestParams {
         switch type
         {
             case .accessToken:
-                print(access_token)
+                print(token_info.access_token ?? "不存在Token")
             case .userId:
-                print(user_id)
+                print(token_info.user_id ?? "不存在userId")
             default:
                 print(111)
         }
     }
     
     func getAuthorizeCodeUrl() -> URL? {
-        return URL(string: "\(BaseUrl)?client_id=\(client_id)&response_type=\(response_type)")
+        return URL(string: "\(request_info.BaseUrl)?client_id=\(request_info.client_id)&response_type=\(request_info.response_type)")
     }
     
     func getAccessToken(postData: Dictionary<String, Any>) -> Void {
-        let base_url = "https://bgm.tv/oauth/access_token"
+        let base_url = request_info.access_url
         var dict = postData
-        dict["grant_type"] = "authorization_code"
-        dict["client_id"] = client_id
-        dict["client_secret"] = client_secret
-        dict["redirect_uri"] = "wingman://kumiko.com/"
+        dict["grant_type"] = request_info.grant_type
+        dict["client_id"] = request_info.client_id
+        dict["client_secret"] = request_info.client_secret
+        dict["redirect_uri"] = request_info.redirect_uri
         let task = makePostRequest(url: base_url, postData: dict)
         task.resume()
     }
@@ -75,14 +71,10 @@ final class BangumiAccountRequestParams {
                     print(error!)
                     return
                 }
-                let r = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                print(r)
-                self.access_token = r["access_token"] as! String
-                self.user_id = r["user_id"] as! Int
-                self.expires_in = r["expires_in"] as! Int
-                self.refresh_token = r["refresh_token"] as! String
+                let decoder = JSONDecoder()
+                token_info = try decoder.decode(BangumiTokenInfo.self, from: data!)
             } catch {
-                print("无法连接到服务器")
+                print("无法连接到服务器 \(response!)")
                 return
             }
         })
