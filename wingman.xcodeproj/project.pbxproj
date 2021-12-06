@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		100DBB48275DAA5B008989B3 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB47275DAA5B008989B3 /* AccountInfo.swift */; };
-		100DBB4C275DC0FB008989B3 /* BangumiNoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */; };
 		100DBB4E275DE705008989B3 /* BangumiUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */; };
 		100DBB50275DE717008989B3 /* noSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100DBB4F275DE717008989B3 /* noSelectView.swift */; };
 		1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094443C275625CD00CB4536 /* wingmanApp.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		100DBB47275DAA5B008989B3 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
-		100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BangumiNoUser.swift; sourceTree = "<group>"; };
 		100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BangumiUserInfo.swift; sourceTree = "<group>"; };
 		100DBB4F275DE717008989B3 /* noSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noSelectView.swift; sourceTree = "<group>"; };
 		10944439275625CD00CB4536 /* wingman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wingman.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				10FDF77E275D04F2001D1FF9 /* InfoBtn.swift */,
-				100DBB4B275DC0FB008989B3 /* BangumiNoUser.swift */,
 				100DBB4D275DE705008989B3 /* BangumiUserInfo.swift */,
 				100DBB4F275DE717008989B3 /* noSelectView.swift */,
 			);
@@ -258,7 +255,6 @@
 				1094443D275625CD00CB4536 /* wingmanApp.swift in Sources */,
 				10FBC4F927579BA8007C0A51 /* LandmarkRow.swift in Sources */,
 				10FBC4F227577743007C0A51 /* ModelData.swift in Sources */,
-				100DBB4C275DC0FB008989B3 /* BangumiNoUser.swift in Sources */,
 				10FDF77F275D04F2001D1FF9 /* InfoBtn.swift in Sources */,
 				10BBE9E92759C3130048794C /* myLandmark.swift in Sources */,
 				100DBB4E275DE705008989B3 /* BangumiUserInfo.swift in Sources */,

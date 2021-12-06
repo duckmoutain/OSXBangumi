@@ -25,7 +25,6 @@ struct LandmarkRow: View {
                     .foregroundColor(.yellow)
             }
         }
-        .frame(minWidth: 150)
     }
 }
 

@@ -12,15 +12,19 @@ struct wingmanApp: App {
     @StateObject private var modelData = ModelData()
     
     var body: some Scene {
-        WindowGroup {
+        WindowGroup("kumiko") {
             ContentView()
+                .handlesExternalEvents(preferring: Set(arrayLiteral: "MainView"), allowing: Set(arrayLiteral: "*"))
                 .environmentObject(modelData)
-                .frame(minWidth: 900, minHeight: 300)
                 .onOpenURL { url in
                     let dict = url.description.tt_urlQueryDict()
                     BangumiAccountRequestParams.shared.getAccessToken(postData: dict)
                 }
         }
+        .commands {
+            CommandGroup(replacing: .newItem, addition: {})
+        }
+        .handlesExternalEvents(matching: Set(arrayLiteral: "MainView"))
     }
 }
 

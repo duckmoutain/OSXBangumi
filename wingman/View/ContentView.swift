@@ -11,8 +11,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             LandmarkList()
+                .frame(minWidth: 300, minHeight: 300)
             noSelectView()
-            BangumiNoUser()
+                .frame(minWidth: 400, minHeight: 300)
+            BangumiUserInfo()
+                .frame(minWidth: 400, minHeight: 300)
         }
     }
 }
