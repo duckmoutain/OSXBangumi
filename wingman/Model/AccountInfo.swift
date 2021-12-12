@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct BangumiTokenInfo: Hashable, Codable {
     
@@ -34,15 +35,21 @@ struct AccountInfo: Hashable, Codable {
     var username: String?
     var nickname: String?
     
-    var avatar: Avatar?
+    var avatar: Dictionary<String, String>?
     
     var sign: String?
     var usergroup: Int?
     
-}
+    var headImage: Image {
+        let url : URL = URL.init(string: avatar?["small"] ?? "")! // 初始化url图片
 
-struct Avatar: Hashable, Codable {
-    var large: String?
-    var mediumL: String?
-    var small: String?
+        let data : NSData! = NSData(contentsOf: url) //转为data类型
+
+        if data != nil { //判断data不为空，这里是因为swift对类型要求很严，如果未空的话，会崩溃
+            let image = NSImage(data: data as Data)
+            return Image(nsImage: image!)
+        }
+        return Image("4180")
+    }
+    
 }

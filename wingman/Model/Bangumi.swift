@@ -7,13 +7,14 @@
 
 import Foundation
 
+
 final class BangumiAccountRequestParams {
     
     static let shared = BangumiAccountRequestParams()
     
     private let request_info: AccountRequestInfo
     private var token_info: BangumiTokenInfo
-    private var account_info: AccountInfo
+    var account_info: AccountInfo
     
     private init() {
         request_info = AccountRequestInfo()
@@ -56,6 +57,27 @@ final class BangumiAccountRequestParams {
         task.resume()
     }
     
+    func getUserInfo(userId: Int) {
+        let session = URLSession(configuration: .default)
+        let url = "https://api.bgm.tv/user/\(userId)"
+        
+        let UrlRequest = URLRequest(url: URL(string: url)!)
+        
+        let task = session.dataTask(with: UrlRequest) { [self](data, response, error) in
+            do {
+                let decoder = JSONDecoder()
+                account_info = try decoder.decode(AccountInfo.self, from: data!)
+                print(account_info)
+            } catch {
+                // 如果连接失败就...
+                print("无法连接到服务器")
+                return
+            }
+        }
+        // 运行此任务
+        task.resume()
+    }
+    
     func makePostRequest( url: String, postData: Dictionary<String, Any> ) -> URLSessionDataTask {
         let session = URLSession(configuration: .ephemeral)
         
@@ -73,6 +95,7 @@ final class BangumiAccountRequestParams {
                 }
                 let decoder = JSONDecoder()
                 token_info = try decoder.decode(BangumiTokenInfo.self, from: data!)
+                getUserInfo(userId: token_info.user_id!)
             } catch {
                 print("无法连接到服务器 \(response!)")
                 return

@@ -11,6 +11,8 @@ import SwiftUI
 struct wingmanApp: App {
     @StateObject private var modelData = ModelData()
     
+    
+    
     var body: some Scene {
         WindowGroup("kumiko") {
             ContentView()

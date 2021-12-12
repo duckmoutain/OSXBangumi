@@ -14,12 +14,24 @@ struct BangumiUserInfo: View {
                 Link("登陆Bangumi", destination:  BangumiAccountRequestParams.shared.getAuthorizeCodeUrl()!)
                 InfoBtn()
             }
+            Section("账户信息") {
+                BangumiAccountInfo(accountInfo: BangumiAccountRequestParams.shared.account_info)
+            }
         }
     }
 }
 
-struct BangumiUserInfo_Previews: PreviewProvider {
-    static var previews: some View {
-        BangumiUserInfo()
+struct BangumiAccountInfo: View {
+    
+    var accountInfo: AccountInfo
+    
+    var body: some View {
+        if((accountInfo.id) != nil)
+       {
+            Text("称呼 \(accountInfo.username!)")
+            Text("昵称 \(accountInfo.nickname!)")
+            Text("签名 \(accountInfo.sign!)")
+            accountInfo.headImage
+        }
     }
 }
