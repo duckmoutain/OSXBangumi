@@ -8,13 +8,13 @@
 import Foundation
 
 
-final class BangumiAccountRequestParams {
+final class BangumiAccountRequestParams: ObservableObject {
     
     static let shared = BangumiAccountRequestParams()
     
     private let request_info: AccountRequestInfo
     private var token_info: BangumiTokenInfo
-    var account_info: AccountInfo
+    @Published var account_info: AccountInfo
     
     private init() {
         request_info = AccountRequestInfo()

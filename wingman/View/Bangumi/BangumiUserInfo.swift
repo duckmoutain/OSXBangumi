@@ -15,23 +15,23 @@ struct BangumiUserInfo: View {
                 InfoBtn()
             }
             Section("账户信息") {
-                BangumiAccountInfo(accountInfo: BangumiAccountRequestParams.shared.account_info)
+                BangumiAccountInfo()
             }
         }
     }
 }
 
 struct BangumiAccountInfo: View {
-    
-    var accountInfo: AccountInfo
+    @StateObject private var bangumi = BangumiAccountRequestParams.shared
     
     var body: some View {
-        if((accountInfo.id) != nil)
-       {
-            Text("称呼 \(accountInfo.username!)")
-            Text("昵称 \(accountInfo.nickname!)")
-            Text("签名 \(accountInfo.sign!)")
-            accountInfo.headImage
+        HStack{
+            bangumi.account_info.headImage
+            VStack(alignment: .leading){
+                Text("称呼 \(bangumi.account_info.username!)")
+                Text("昵称 \(bangumi.account_info.nickname!)")
+                Text("签名 \(bangumi.account_info.sign!)")
+            }
         }
     }
 }
